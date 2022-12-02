@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import ISTJ from "../../asset/ISTJ.jpeg";
 import { user } from "../../recoil";
 
 const Profile = styled.img`
@@ -72,7 +71,7 @@ const Result = () => {
     <>
       <Wrapper>
         <Box>
-          <Profile src={ISTJ}></Profile>
+          <Profile src="/image/ISTJ.jpeg"></Profile>
           <Title>
             {user_info.nickname} {user_info.githubId}
           </Title>
