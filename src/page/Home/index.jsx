@@ -1,75 +1,90 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled, { css } from "styled-components";
+import { userName } from "../../recoil";
+
+const Wrapper = styled.div`
+  margin-top: 2rem;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;
+
+const SignIn = styled.h1`
+  font-size: 1.8em;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+`;
+
+const Box = styled.div`
+  font-size: 1.2em;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 308px;
+  background: rgb(23, 27, 33);
+  border-radius: 10px;
+  text-align: center;
+  padding: 16px;
+  display: flex;
+  justify-contents: center;
+  flex-direction: column;
+`;
+
+const Desc = styled.label`
+  color: #c9d1d9;
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  padding: 8px 0;
+`;
+
+const Input = styled.input`
+  background: rgb(14, 17, 22);
+  border-radius: 5px;
+  width: 100%;
+  border: solid 1px #30363d;
+  padding: 5px 12px;
+  line-height: 20px;
+  color: #c9d1d9;
+  outline: none;
+  margin-bottom: 16px;
+`;
+
+const SignInBtn = styled.button`
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  background: #238636;
+  padding: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  color: white;
+`;
 
 const Home = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useRecoilState(userName);
+  const [input, setInput] = useState("");
 
-  const Wrapper = styled.div`
-    margin-top: 2rem;
-  `;
+  useEffect(() => {
+    console.log(input);
+  }, [input]);
 
-  const Logo = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  `;
-
-  const SignIn = styled.h1`
-    font-size: 1.8em;
-    color: white;
-    text-align: center;
-    font-weight: 400;
-  `;
-
-  const Box = styled.div`
-    font-size: 1.2em;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 308px;
-    background: rgb(23, 27, 33);
-    border-radius: 10px;
-    text-align: center;
-    padding: 16px;
-    display: flex;
-    justify-contents: center;
-    flex-direction: column;
-  `;
-
-  const Desc = styled.label`
-    color: #c9d1d9;
-    display: block;
-    text-align: left;
-    width: 100%;
-    font-size: 14px;
-    padding: 8px 0;
-  `;
-
-  const Input = styled.input`
-    background: rgb(14, 17, 22);
-    border-radius: 5px;
-    width: 100%;
-    border: solid 1px #30363d;
-    padding: 5px 12px;
-    line-height: 20px;
-    color: #c9d1d9;
-    outline: none;
-    margin-bottom: 16px;
-  `;
-
-  const SignInBtn = styled.button`
-    display: block;
-    width: 100%;
-    border-radius: 6px;
-    background: #238636;
-    padding: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    color: white;
-  `;
+  const onChangeInput = (e) => {
+    setInput(e.target.value);
+  };
 
   const onClick = () => {
-    navigate("/result");
+    setUsername(input);
+    navigate("/loading");
   };
 
   return (
@@ -96,7 +111,7 @@ const Home = () => {
         <SignIn>Github x GITI</SignIn>
         <Box>
           <Desc>Input Github Username</Desc>
-          <Input type="text" />
+          <Input onChange={onChangeInput} value={input} type="text" />
           <SignInBtn onClick={onClick}>분석</SignInBtn>
         </Box>
       </Wrapper>

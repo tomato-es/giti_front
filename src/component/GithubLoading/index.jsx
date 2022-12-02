@@ -15,7 +15,7 @@ const LoadingGif = styled.img`
   margin: 0 auto;
 `;
 
-const Loading = () => {
+const GithubLoading = () => {
   return (
     <>
       <Layout>
@@ -25,4 +25,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default GithubLoading;
