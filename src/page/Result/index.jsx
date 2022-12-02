@@ -71,7 +71,7 @@ const Result = () => {
     <>
       <Wrapper>
         <Box>
-          <Profile src="/image/ISTJ.jpeg"></Profile>
+          <Profile src="https://wooyeons.s3.ap-northeast-2.amazonaws.com/KakaoTalk_Photo_2022-12-03-05-12-24+003.jpeg"></Profile>
           <Title>
             {user_info.nickname} {user_info.githubId}
           </Title>
