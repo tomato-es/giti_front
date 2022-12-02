@@ -11,7 +11,14 @@ import { RecoilRoot } from "recoil";
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
+    appearance: none;
     -webkit-appearance: none;
+  }
+
+  input{
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
   }
 
   body, html {
