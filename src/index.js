@@ -4,7 +4,19 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 import Result from "./page/Result";
-import "./styles/common.css"
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(14,17,22);
+  }
+`;
 
 const router = createBrowserRouter([
   {
@@ -20,6 +32,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

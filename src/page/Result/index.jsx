@@ -1,5 +1,11 @@
+import Loading from "../../component/Loading";
+
 const Result = () => {
-  return <>result</>;
+  return (
+    <>
+      <Loading></Loading>
+    </>
+  );
 };
 
 export default Result;
